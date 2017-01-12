@@ -16,7 +16,7 @@ RUN curl -o /opt/apache-storm.tar.gz ${APACHE_MIRROR}/apache-storm-${STORM_VERSI
     mkdir -p /opt/apache-storm/logs && \
     mkdir -p /opt/apache-storm/logback-dist && \
     mkdir -p /opt/apache-storm/conf-dist && \
-    mv /opt/apache-storm/logback/cluster.xml /opt/apache-storm/logback-dist/cluster-file.xml && \
+#    mv /opt/apache-storm/logback/cluster.xml /opt/apache-storm/logback-dist/cluster-file.xml && \
     cp /opt/apache-storm/conf/* /opt/apache-storm/conf-dist/
 
 COPY logback-cluster.xml /opt/apache-storm/logback/cluster.xml
