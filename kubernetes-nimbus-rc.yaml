@@ -14,14 +14,14 @@ spec:
     spec:
       containers:
       - name: zookeeper
-        image: 172.30.188.59:5000/service-broker/docker-storm-cluster
+        image: 172.30.188.59:5000/yepeng/docker-storm-cluster
         env:
         - name: CONFIGURE_ZOOKEEPER
           value: "true"
         - name: STORM_CMD
           value: "nimbus"
         - name: ZK_SERVER_1_SERVICE_HOST
-          value: "sb-instanceid-zk"
+          value: "kafkanetes-zk"
         volumeMounts:
         - name: storm-data
           mountPath: /opt/apache-storm/storm-local

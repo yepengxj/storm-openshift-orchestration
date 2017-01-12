@@ -1,7 +1,7 @@
 FROM java:8-jre
 
 # 0.10.0
-ENV STORM_VERSION 0.9.2-incubating
+ENV STORM_VERSION 0.10.0
 ENV APACHE_MIRROR http://apache.cs.utah.edu/storm
 
 RUN apt-get update && apt-get install -y python
