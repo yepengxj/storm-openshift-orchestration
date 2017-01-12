@@ -3,7 +3,7 @@ FROM java:8-jre
 RUN sed -i "s/http:\/\/httpredir.debian.org/http:\/\/mirrors.aliyun.com/g" /etc/apt/sources.list && \
     sed -i "s/http:\/\/security.debian.org/http:\/\/mirrors.aliyun.com\/debian-security/g" /etc/apt/sources.list
 # 0.10.0
-ENV STORM_VERSION 0.10.0
+ENV STORM_VERSION 0.10.2
 ENV APACHE_MIRROR http://mirrors.aliyun.com/apache/storm
 
 RUN apt-get update && apt-get install -y python
