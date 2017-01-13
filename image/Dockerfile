@@ -5,7 +5,7 @@ RUN sed -i "s/http:\/\/httpredir.debian.org/http:\/\/mirrors.aliyun.com/g" /etc/
 # 0.10.0
 ENV STORM_VERSION 0.10.0
 ENV APACHE_MIRROR http://mirrors.aliyun.com/apache/storm
-
+ENV KAFKA_DEP v0.1
 RUN apt-get update && apt-get install -y python wget  tar
 
 RUN curl -o /opt/apache-storm.tar.gz ${APACHE_MIRROR}/apache-storm-${STORM_VERSION}/apache-storm-${STORM_VERSION}.tar.gz && \
@@ -25,8 +25,8 @@ COPY configure-zookeeper-servers /configure-zookeeper-servers
 COPY run.sh /run.sh
 
 WORKDIR /opt/apache-storm
-run wget -P /opt/apache-storm/lib  https://s3.cn-north-1.amazonaws.com.cn/cqyd/storm-dep-v0.1.tar.gz
-run tar -C /opt/apache-storm/lib -xzf  /opt/apache-storm/lib/storm-dep.tar.gz
+run wget -P /opt/apache-storm/lib  https://s3.cn-north-1.amazonaws.com.cn/cqyd/storm-dep-${KAFKA_DEP}.tar.gz
+run tar -C /opt/apache-storm/lib -xzf  /opt/apache-storm/lib/storm-dep-${KAFKA_DEP}.tar.gz
 # see https://github.com/apache/storm/blob/master/SECURITY.md
 EXPOSE 6700 6701 6702 6703 8080 6627
 
