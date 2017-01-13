@@ -25,8 +25,8 @@ COPY configure-zookeeper-servers /configure-zookeeper-servers
 COPY run.sh /run.sh
 
 WORKDIR /opt/apache-storm
-wget -P /opt/apache-storm/lib  https://s3.cn-north-1.amazonaws.com.cn/cqyd/storm-dep.tar.gz
-tar -C /opt/apache-storm/lib  /opt/apache-storm/lib/storm-dep.tar.gz
+run wget -P /opt/apache-storm/lib  https://s3.cn-north-1.amazonaws.com.cn/cqyd/storm-dep.tar.gz
+run tar -C /opt/apache-storm/lib  /opt/apache-storm/lib/storm-dep.tar.gz
 # see https://github.com/apache/storm/blob/master/SECURITY.md
 EXPOSE 6700 6701 6702 6703 8080 6627
 
