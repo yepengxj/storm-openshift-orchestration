@@ -5,7 +5,7 @@ RUN sed -i "s/http:\/\/httpredir.debian.org/http:\/\/mirrors.aliyun.com/g" /etc/
 # 0.10.0
 ENV STORM_VERSION 0.10.0
 ENV APACHE_MIRROR http://mirrors.aliyun.com/apache/storm
-ENV KAFKA_DEP v0.1
+ENV KAFKA_DEP v0.2
 RUN apt-get update && apt-get install -y python wget  tar git
 
 RUN curl -o /opt/apache-storm.tar.gz ${APACHE_MIRROR}/apache-storm-${STORM_VERSION}/apache-storm-${STORM_VERSION}.tar.gz && \
