@@ -6,7 +6,7 @@ RUN sed -i "s/http:\/\/httpredir.debian.org/http:\/\/mirrors.aliyun.com/g" /etc/
 ENV STORM_VERSION 0.10.0
 ENV APACHE_MIRROR http://mirrors.aliyun.com/apache/storm
 
-RUN apt-get update && apt-get install -y python
+RUN apt-get update && apt-get install -y python wget  tar
 
 RUN curl -o /opt/apache-storm.tar.gz ${APACHE_MIRROR}/apache-storm-${STORM_VERSION}/apache-storm-${STORM_VERSION}.tar.gz && \
     tar -C /opt -xzf /opt/apache-storm.tar.gz && \
@@ -25,7 +25,8 @@ COPY configure-zookeeper-servers /configure-zookeeper-servers
 COPY run.sh /run.sh
 
 WORKDIR /opt/apache-storm
-
+wget -P /opt/apache-storm/lib  https://s3.cn-north-1.amazonaws.com.cn/cqyd/storm-dep.tar.gz
+tar -C /opt/apache-storm/lib  /opt/apache-storm/lib/storm-dep.tar.gz
 # see https://github.com/apache/storm/blob/master/SECURITY.md
 EXPOSE 6700 6701 6702 6703 8080 6627
 
